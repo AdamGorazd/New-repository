@@ -1,58 +1,61 @@
 package com.example.adas.app1;
 
-import android.support.v7.app.AppCompatActivity;
+
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
-import android.view.View.OnClickListener;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button button, button2;
-    ImageView image;
-    TextView text;
-
+    Button button;
+    int i=0;
+    private static final String TAG = MainActivity.class.getSimpleName();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        System.out.println("TAG = "+TAG);
+        Log.d(TAG, "dupa");
+        button=(Button)findViewById(R.id.button);
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction ft = fragmentManager.beginTransaction();
+        ft.replace(R.id.your_placeholder, new Fragment1());
+        ft.commit();
+        i=1;
         addListenerOnButton();
+
     }
 
-    public void addListenerOnButton() {
+    private void addListenerOnButton() {
 
-        image = (ImageView)findViewById(R.id.imageView);
-        button = (Button)findViewById(R.id.button);
-        button2 = (Button)findViewById(R.id.button2);
-        text = (TextView)findViewById(R.id.textView);
-
-        text.append("obrazek");
-        text.setVisibility(View.INVISIBLE);
-
-        button.setOnClickListener(new OnClickListener() {
+        button.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View arg0) {
-                image.setImageResource(R.drawable.test);
-                image.setVisibility(View.VISIBLE);
-                text.setVisibility(View.VISIBLE);
+                if(i==0)
+                {
+                    FragmentManager fragmentManager = getFragmentManager();
+                    FragmentTransaction ft = fragmentManager.beginTransaction();
+                    ft.replace(R.id.your_placeholder, new Fragment2());
+                    ft.commit();
+                    i=1;
+                }
+                else
+                {
+                    FragmentManager fragmentManager = getFragmentManager();
+                    FragmentTransaction ft = fragmentManager.beginTransaction();
+                    ft.replace(R.id.your_placeholder, new Fragment1());
+                    ft.commit();
+                    i=0;
+                }
             }
 
         });
-
-        button2.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                image.setVisibility(View.INVISIBLE);
-                text.setVisibility(View.INVISIBLE);
-            }
-        });
-
-
-
     }
+
 
 }
