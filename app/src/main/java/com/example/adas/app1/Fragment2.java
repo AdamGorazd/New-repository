@@ -26,8 +26,6 @@ public class Fragment2 extends Fragment {
     @Override
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        System.out.println("TAG = "+TAG);
-        Log.d(TAG, "dupa1");
 
         View RootView = inflater.inflate(R.layout.fragment2, container, false);
         image2 = (ImageView)RootView.findViewById(R.id.imageView2);
