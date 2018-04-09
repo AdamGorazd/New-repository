@@ -41,17 +41,7 @@ public class Fragment2 extends Fragment implements View.OnClickListener{
     public void loadImageFromURL(String url) {
         Picasso.with(getActivity()).load(url).placeholder(R.mipmap.ic_launcher)
                 .error(R.mipmap.ic_launcher)
-                .into(image2, new com.squareup.picasso.Callback() {
-                    @Override
-                    public void onSuccess() {
-
-                    }
-
-                    @Override
-                    public void onError() {
-
-                    }
-                });
+                .into(image2);
     }
 
     @Override
