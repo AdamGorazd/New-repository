@@ -17,7 +17,7 @@ tools:context="com.example.adas.app1.MainActivity">
         android:layout_marginLeft="17dp"
         android:layout_marginStart="17dp"
         android:layout_marginTop="14dp"
-        android:text="CHANGE" />
+        android:text="Fragment1" />
 
     <FrameLayout
         android:id="@+id/your_placeholder"
@@ -27,6 +27,28 @@ tools:context="com.example.adas.app1.MainActivity">
         android:layout_marginTop="10dp">
 
     </FrameLayout>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/your_placeholder"
+        android:layout_marginLeft="22dp"
+        android:layout_marginStart="22dp"
+        android:layout_toEndOf="@+id/button"
+        android:layout_toRightOf="@+id/button"
+        android:text="Fragment2" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/your_placeholder"
+        android:layout_marginLeft="13dp"
+        android:layout_marginStart="13dp"
+        android:layout_toEndOf="@+id/button2"
+        android:layout_toRightOf="@+id/button2"
+        android:text="Fragment3" />
 
 
 </RelativeLayout>

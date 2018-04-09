@@ -1,25 +1,22 @@
 package com.example.adas.app1;
 
+import android.app.Fragment;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.view.View;
-import android.view.View.OnClickListener;
+
 import com.squareup.picasso.Picasso;
-import android.app.Fragment;
-import android.util.Log;
 
-public class Fragment2 extends Fragment {
+public class Fragment2 extends Fragment implements View.OnClickListener{
 
-    Button button, button2;
-    ImageView image2;
-    TextView text;
-    String url = "https://i.imgur.com/2fGcUfe.jpg";
-    View view;
+    public Button button, button2;
+    public ImageView image2;
+    public TextView text;
+    public final String url = "https://i.imgur.com/2fGcUfe.jpg";
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
@@ -27,38 +24,18 @@ public class Fragment2 extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View RootView = inflater.inflate(R.layout.fragment2, container, false);
-        image2 = (ImageView)RootView.findViewById(R.id.imageView2);
+        View view = inflater.inflate(R.layout.fragment2, container, false);
+        image2 = view.findViewById(R.id.imageView2);
         loadImageFromURL(url);
         image2.setVisibility(View.INVISIBLE);
-        button = (Button)RootView.findViewById(R.id.button);
-        button2 = (Button)RootView.findViewById(R.id.button2);
-        text = (TextView)RootView.findViewById(R.id.textView);
-        text.append("obrazek");
+        button = view.findViewById(R.id.button);
+        button.setOnClickListener(this);
+        button2 = view.findViewById(R.id.button2);
+        button2.setOnClickListener(this);
+        text = view.findViewById(R.id.textView);
+        text.setText("obrazek");
         text.setVisibility(View.INVISIBLE);
-        addListenerOnButton();
-        return RootView;
-    }
-
-
-    public void addListenerOnButton() {
-        button.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-                image2.setVisibility(View.VISIBLE);
-                text.setVisibility(View.VISIBLE);
-            }
-
-        });
-
-        button2.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                image2.setVisibility(View.INVISIBLE);
-                text.setVisibility(View.INVISIBLE);
-            }
-        });
+        return view;
     }
 
     public void loadImageFromURL(String url) {
@@ -77,4 +54,18 @@ public class Fragment2 extends Fragment {
                 });
     }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.button:
+                image2.setVisibility(View.VISIBLE);
+                text.setVisibility(View.VISIBLE);
+                break;
+
+            case R.id.button2:
+                image2.setVisibility(View.INVISIBLE);
+                text.setVisibility(View.INVISIBLE);
+                break;
+        }
+    }
 }
