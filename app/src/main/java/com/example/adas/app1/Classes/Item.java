@@ -1,4 +1,4 @@
-package com.example.adas.app1;
+package com.example.adas.app1.Classes;
 
 import android.widget.ImageView;
 
@@ -6,13 +6,13 @@ import android.widget.ImageView;
  * Created by Adas on 2018-04-09.
  */
 
-public class List {
+public class Item {
 
     public String title;
     public String subtitle;
-    public ImageView image;
+    public String image;
 
-    public List(String title, String subtitle, ImageView image) {
+    public Item(String title, String subtitle, String image) {
         this.title = title;
         this.subtitle = subtitle;
         this.image = image;
@@ -34,11 +34,11 @@ public class List {
         this.subtitle = subtitle;
     }
 
-    public ImageView getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(ImageView image) {
+    public void setImage(String image) {
         this.image = image;
     }
 }

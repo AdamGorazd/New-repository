@@ -8,6 +8,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.adas.app1.Fragments.ShowImages;
+import com.example.adas.app1.Fragments.ShowItemList;
+import com.example.adas.app1.Fragments.ShowText;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     public Button button, button2, button3;
@@ -24,7 +28,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         button3=findViewById(R.id.button3);
         button3.setOnClickListener(this);
 
-        changeFragment(new Fragment1());
+        changeFragment(new ShowText());
     }
 
     public void changeFragment(Fragment fragment)
@@ -39,15 +43,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.button:
-                changeFragment(new Fragment1());
+                changeFragment(new ShowText());
                 break;
 
             case R.id.button2:
-                changeFragment(new Fragment2());
+                changeFragment(new ShowImages());
                 break;
 
             case R.id.button3:
-                changeFragment(new Fragment3());
+                changeFragment(new ShowItemList());
                 break;
         }
     }

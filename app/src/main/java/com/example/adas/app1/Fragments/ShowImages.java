@@ -1,4 +1,4 @@
-package com.example.adas.app1;
+package com.example.adas.app1.Fragments;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -9,9 +9,11 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.adas.app1.MainActivity;
+import com.example.adas.app1.R;
 import com.squareup.picasso.Picasso;
 
-public class Fragment2 extends Fragment implements View.OnClickListener{
+public class ShowImages extends Fragment implements View.OnClickListener{
 
     public Button button, button2;
     public ImageView image2;
@@ -24,7 +26,7 @@ public class Fragment2 extends Fragment implements View.OnClickListener{
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment2, container, false);
+        View view = inflater.inflate(R.layout.show_images, container, false);
         image2 = view.findViewById(R.id.imageView2);
         loadImageFromURL(url);
         image2.setVisibility(View.INVISIBLE);

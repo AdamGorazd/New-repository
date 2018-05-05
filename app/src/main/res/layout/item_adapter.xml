@@ -28,7 +28,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/subtitle"
-        app:srcCompat="@drawable/test" />
+        app:srcCompat="@drawable/test"
+        android:scaleType="fitCenter"
+        android:maxWidth="100dp"
+        android:maxHeight="100dp"/>
 
 
 </RelativeLayout>
